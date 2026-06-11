@@ -1,14 +1,8 @@
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Calendar, Users } from 'lucide-react';
-import SkillBadge from '@/components/SkillBadge';
-import { skills, skillCategories } from '@/data/skills';
+import { Calendar, Users } from 'lucide-react';
 import { experiences, education } from '@/data/experience';
 
 export default function About() {
-  const getSkillsByCategory = (category: string) => {
-    return skills.filter((skill) => skill.category === category);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       <section className="pt-24 pb-16 md:pt-32 md:pb-24">
@@ -52,40 +46,6 @@ export default function About() {
               </p>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">专业技能</h2>
-            <p className="text-gray-600">掌握多种前端技术栈，持续学习与成长</p>
-          </motion.div>
-
-          {Object.entries(skillCategories).map(([key, label]) => (
-            <motion.div
-              key={key}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-10"
-            >
-              <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                <span className="w-1 h-6 bg-primary-500 rounded-full mr-3" />
-                {label}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {getSkillsByCategory(key).map((skill) => (
-                  <SkillBadge key={skill.id} skill={skill} />
-                ))}
-              </div>
-            </motion.div>
-          ))}
         </div>
       </section>
 
