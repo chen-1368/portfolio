@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github as GithubIcon, Linkedin as LinkedinIcon, Mail, MapPin, Phone, Send, Twitter as TwitterIcon } from 'lucide-react';
+import {
+  Github as GithubIcon,
+  Linkedin as LinkedinIcon,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  Twitter as TwitterIcon,
+} from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,29 +23,31 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
+
       setTimeout(() => {
         setIsSubmitted(false);
       }, 3000);
     }, 1500);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-blue-50">
       <section className="pt-24 pb-16 md:pt-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -48,9 +58,7 @@ export default function Contact() {
               <Mail size={16} className="mr-2" />
               联系我
             </span>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              与我取得联系
-            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">与我取得联系</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
               有任何问题或合作意向？欢迎随时联系我，我会尽快回复您。
             </p>
@@ -65,7 +73,7 @@ export default function Contact() {
             >
               <div className="bg-white p-6 rounded-2xl card-shadow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">联系方式</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-primary-100 rounded-xl">
@@ -141,11 +149,14 @@ export default function Contact() {
             >
               <div className="bg-white p-8 rounded-2xl card-shadow">
                 <h3 className="text-xl font-semibold text-gray-900 mb-6">发送消息</h3>
-                
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         姓名
                       </label>
                       <input
@@ -160,7 +171,10 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         邮箱
                       </label>
                       <input
@@ -177,7 +191,10 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       主题
                     </label>
                     <select
@@ -197,7 +214,10 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       消息内容
                     </label>
                     <textarea

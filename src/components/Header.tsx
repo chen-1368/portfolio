@@ -32,12 +32,9 @@ export default function Header() {
         isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link
-            to="/"
-            className="text-xl md:text-2xl font-bold text-gradient"
-          >
+          <Link to="/" className="text-xl md:text-2xl font-bold text-gradient">
             作品集
           </Link>
 

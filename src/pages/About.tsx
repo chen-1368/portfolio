@@ -6,13 +6,13 @@ import { experiences, education } from '@/data/experience';
 
 export default function About() {
   const getSkillsByCategory = (category: string) => {
-    return skills.filter(skill => skill.category === category);
+    return skills.filter((skill) => skill.category === category);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
       <section className="pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -29,17 +29,6 @@ export default function About() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl card-shadow">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-green-100 rounded-xl">
-                      <Award size={24} className="text-green-600" />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-gray-900">5+</div>
-                      <div className="text-sm text-gray-500">年开发经验</div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </motion.div>
 
@@ -52,43 +41,22 @@ export default function About() {
                 <Users size={16} className="mr-2" />
                 关于我
               </span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                资深前端工程师
-              </h1>
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">资深前端工程师</h1>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                我是一名充满热情的前端工程师，拥有5年以上的开发经验。
-                专注于使用 React、Vue 等现代前端技术构建高质量的 Web 应用。
-                我热爱创造优雅的用户界面和流畅的交互体验。
+                我是一名充满热情的前端工程师，拥有丰富的开发经验。 专注于使用 React、Vue
+                等现代前端技术构建高质量的 Web 应用。 我热爱创造优雅的用户界面和流畅的交互体验。
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                在过去的几年里，我参与了多个大型项目的开发，包括电商平台、企业级后台管理系统、数据可视化仪表盘等。
+                在过去的几年里，我参与了多个大型项目的开发，包括图片资源分享平台、企业级后台管理系统等。
                 我善于解决复杂问题，注重代码质量和团队协作。
               </p>
-
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-white rounded-xl card-shadow">
-                  <BookOpen size={28} className="mx-auto text-primary-600 mb-2" />
-                  <div className="text-xl font-bold text-gray-900">20+</div>
-                  <div className="text-xs text-gray-500">技术栈</div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-xl card-shadow">
-                  <Award size={28} className="mx-auto text-primary-600 mb-2" />
-                  <div className="text-xl font-bold text-gray-900">10+</div>
-                  <div className="text-xs text-gray-500">荣誉奖项</div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-xl card-shadow">
-                  <Users size={28} className="mx-auto text-primary-600 mb-2" />
-                  <div className="text-xl font-bold text-gray-900">50+</div>
-                  <div className="text-xs text-gray-500">项目经验</div>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +90,7 @@ export default function About() {
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -143,12 +111,14 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className={`relative mb-8 ${
-                  index % 2 === 0 ? 'md:text-right' : 'md:ml-auto'
-                }`}
+                className={`relative mb-8 ${index % 2 === 0 ? 'md:text-right' : 'md:ml-auto'}`}
               >
-                <div className={`absolute left-6 md:left-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white shadow-lg -translate-x-1/2`} />
-                <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                <div
+                  className={`absolute left-6 md:left-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white shadow-lg -translate-x-1/2`}
+                />
+                <div
+                  className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}
+                >
                   <div className="bg-white p-6 rounded-xl card-shadow">
                     <div className="flex items-center gap-2 mb-2">
                       <Calendar size={16} className="text-gray-400" />
@@ -168,7 +138,7 @@ export default function About() {
       </section>
 
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -103,4 +103,4 @@ export const projects: Project[] = [
   }
 ];
 
-export const categories = ['全部', '前端开发', '数据可视化', '移动端', '全栈开发', 'AI/ML'];
+export const categories = ['全部', '前端开发', '后端开发', '全栈开发', 'AI/ML'];

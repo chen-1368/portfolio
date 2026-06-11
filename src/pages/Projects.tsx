@@ -6,14 +6,15 @@ import { projects, categories } from '@/data/projects';
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('全部');
 
-  const filteredProjects = activeCategory === '全部'
-    ? projects
-    : projects.filter(project => project.category === activeCategory);
+  const filteredProjects =
+    activeCategory === '全部'
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <section className="pt-24 pb-16 md:pt-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -25,7 +26,7 @@ export default function Projects() {
             </span>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">我的项目作品</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              展示我参与开发的各种项目，涵盖前端开发、数据可视化、移动端等多个领域
+              展示我参与开发的各种项目，涵盖前端开发、后端开发、全栈开发等多个领域
             </p>
           </motion.div>
 

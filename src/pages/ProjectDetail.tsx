@@ -5,7 +5,7 @@ import { projects } from '@/data/projects';
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
-  const project = projects.find(p => p.id === id);
+  const project = projects.find((p) => p.id === id);
 
   if (!project) {
     return (
@@ -22,8 +22,8 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-24 pb-16 md:pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,9 +56,7 @@ export default function ProjectDetail() {
                 <span className="inline-block px-4 py-1 bg-primary-600 text-white text-sm font-medium rounded-full mb-4">
                   {project.category}
                 </span>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {project.name}
-                </h1>
+                <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">{project.name}</h1>
               </div>
             </div>
           </motion.div>
