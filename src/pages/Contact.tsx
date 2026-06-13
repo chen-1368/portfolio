@@ -1,14 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import {
-  Github as GithubIcon,
-  Linkedin as LinkedinIcon,
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  Twitter as TwitterIcon,
-} from 'lucide-react';
+import { Github as GithubIcon, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { socialLinks, contactInfo } from '@/data/socials';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -81,7 +74,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">邮箱</p>
-                      <p className="text-gray-900 font-medium">example@email.com</p>
+                      <p className="text-gray-900 font-medium">{contactInfo.email}</p>
                     </div>
                   </div>
 
@@ -91,7 +84,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">电话</p>
-                      <p className="text-gray-900 font-medium">+86 123-4567-8900</p>
+                      <p className="text-gray-900 font-medium">{contactInfo.phone}</p>
                     </div>
                   </div>
 
@@ -101,7 +94,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">地址</p>
-                      <p className="text-gray-900 font-medium">北京市朝阳区科技园区</p>
+                      <p className="text-gray-900 font-medium">{contactInfo.address}</p>
                     </div>
                   </div>
                 </div>
@@ -110,33 +103,18 @@ export default function Contact() {
               <div className="bg-white p-6 rounded-2xl card-shadow">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">社交媒体</h3>
                 <div className="flex flex-wrap gap-3">
-                  <a
-                    href="https://github.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
-                  >
-                    <GithubIcon size={18} />
-                    <span>GitHub</span>
-                  </a>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    <LinkedinIcon size={18} />
-                    <span>LinkedIn</span>
-                  </a>
-                  <a
-                    href="https://twitter.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors"
-                  >
-                    <TwitterIcon size={18} />
-                    <span>Twitter</span>
-                  </a>
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+                    >
+                      <GithubIcon size={18} />
+                      <span>{link.name}</span>
+                    </a>
+                  ))}
                 </div>
               </div>
             </motion.div>

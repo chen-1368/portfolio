@@ -1,9 +1,5 @@
-import {
-  Github as GithubIcon,
-  Linkedin as LinkedinIcon,
-  Mail,
-  Twitter as TwitterIcon,
-} from 'lucide-react';
+import { Github as GithubIcon, Mail } from 'lucide-react';
+import { socialLinks, contactInfo } from '@/data/socials';
 
 export default function Footer() {
   return (
@@ -47,7 +43,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">联系方式</h4>
             <div className="flex space-x-4">
               <a
-                href="https://github.com"
+                href={socialLinks.find((link) => link.name === 'GitHub')?.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gray-800 hover:bg-primary-600 transition-colors"
@@ -55,23 +51,7 @@ export default function Footer() {
                 <GithubIcon size={20} />
               </a>
               <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-gray-800 hover:bg-primary-600 transition-colors"
-              >
-                <LinkedinIcon size={20} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-gray-800 hover:bg-primary-600 transition-colors"
-              >
-                <TwitterIcon size={20} />
-              </a>
-              <a
-                href="mailto:example@email.com"
+                href={`mailto:${contactInfo.email}`}
                 className="p-2 rounded-lg bg-gray-800 hover:bg-primary-600 transition-colors"
               >
                 <Mail size={20} />
