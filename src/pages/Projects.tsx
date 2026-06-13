@@ -14,7 +14,7 @@ export default function Projects() {
   return (
     <div className="min-h-screen bg-gray-50">
       <section className="pt-24 pb-16 md:pt-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
