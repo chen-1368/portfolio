@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Github as GithubIcon } from 'lucide-react';
 import { Project } from '@/data/projects';
 import { Link } from 'react-router-dom';
+import { getAssetUrl } from '@/utils/asset';
 
 interface CardProps {
   project: Project;
@@ -32,7 +33,7 @@ export default function Card({ project }: CardProps) {
       <Link to={`/project/${project.id}`}>
         <div className="relative overflow-hidden">
           <img
-            src={project.image}
+            src={getAssetUrl(project.image)}
             alt={project.name}
             className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
             loading="lazy"

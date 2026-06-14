@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, Users } from 'lucide-react';
 import { experiences, education } from '@/data/experience';
+import { getAssetUrl } from '@/utils/asset';
 
 export default function About() {
   return (
@@ -18,7 +19,7 @@ export default function About() {
               <div className="relative">
                 <div className="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full overflow-hidden card-shadow">
                   <img
-                    src="https://neeko-copilot.bytedance.net/api/text_to_image?prompt=professional%20software%20developer%20portrait%20headshot%20clean%20background&image_size=square"
+                    src={getAssetUrl('/images/sober.jpg')}
                     alt="个人照片"
                     className="w-full h-full object-cover"
                   />

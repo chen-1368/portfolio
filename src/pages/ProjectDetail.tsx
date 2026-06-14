@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github as GithubIcon, Target, Zap } from 'lucide-react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '@/data/projects';
+import { getAssetUrl } from '@/utils/asset';
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
@@ -46,7 +47,7 @@ export default function ProjectDetail() {
           >
             <div className="relative overflow-hidden rounded-2xl mb-8 bg-gray-100">
               <img
-                src={project.image}
+                src={getAssetUrl(project.image)}
                 alt={project.name}
                 className="w-full max-h-[500px] object-contain"
                 loading="lazy"
