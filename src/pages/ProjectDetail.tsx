@@ -50,7 +50,6 @@ export default function ProjectDetail() {
                 src={getAssetUrl(project.image)}
                 alt={project.name}
                 className="w-full max-h-[500px] object-contain"
-                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
