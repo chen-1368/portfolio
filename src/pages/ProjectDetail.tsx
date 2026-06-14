@@ -44,11 +44,11 @@ export default function ProjectDetail() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div className="relative overflow-hidden rounded-2xl mb-8">
+            <div className="relative overflow-hidden rounded-2xl mb-8 bg-gray-100">
               <img
                 src={project.image}
                 alt={project.name}
-                className="w-full h-64 md:h-96 object-cover"
+                className="w-full max-h-[500px] object-contain"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

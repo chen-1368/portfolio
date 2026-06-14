@@ -105,7 +105,7 @@ export const projects: Project[] = [
     id: '7',
     name: '个人作品集网站',
     description: '使用 React + TypeScript + TailwindCSS 构建的现代化个人作品集网站，展示个人项目和技能。',
-    image: '/images/portfolio-preview.svg',
+    image: '/images/portfolio.jpg',
     category: '前端开发',
     techStack: ['React', 'TypeScript', 'TailwindCSS', 'Vite', 'React Router'],
     achievements: [

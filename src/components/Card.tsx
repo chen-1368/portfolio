@@ -37,11 +37,6 @@ export default function Card({ project }: CardProps) {
             className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
             loading="lazy"
           />
-          <div className="absolute top-3 left-3">
-            <span className="px-3 py-1 bg-primary-600 text-white text-xs font-medium rounded-full">
-              {project.category}
-            </span>
-          </div>
         </div>
 
         <div className="p-5">
