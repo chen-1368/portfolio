@@ -123,15 +123,22 @@ export default function ProjectDetail() {
               <div className="bg-white rounded-2xl p-6 card-shadow sticky top-24">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">快速链接</h3>
                 <div className="space-y-3">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-primary text-white rounded-lg font-medium hover:shadow-lg transition-all"
-                  >
-                    <ExternalLink size={18} />
-                    <span>在线预览</span>
-                  </a>
+                  {project.link !== '#' ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-primary text-white rounded-lg font-medium hover:shadow-lg transition-all"
+                    >
+                      <ExternalLink size={18} />
+                      <span>在线预览</span>
+                    </a>
+                  ) : (
+                    <div className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 text-gray-400 rounded-lg font-medium cursor-not-allowed">
+                      <ExternalLink size={18} />
+                      <span>暂未部署</span>
+                    </div>
+                  )}
                   {project.github && (
                     <a
                       href={project.github}
