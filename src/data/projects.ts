@@ -100,6 +100,21 @@ export const projects: Project[] = [
     ],
     link: '#',
     github: 'https://github.com/example/ai-image-generator'
+  },
+  {
+    id: '7',
+    name: '个人作品集网站',
+    description: '使用 React + TypeScript + TailwindCSS 构建的现代化个人作品集网站，展示个人项目和技能。',
+    image: '/images/portfolio-preview.svg',
+    category: '前端开发',
+    techStack: ['React', 'TypeScript', 'TailwindCSS', 'Vite', 'React Router'],
+    achievements: [
+      '响应式设计，支持多设备访问',
+      '流畅的页面动画效果',
+      '现代化的 UI 设计'
+    ],
+    link: 'https://chen-1368.github.io/portfolio',
+    github: 'https://github.com/chen-1368/portfolio'
   }
 ];
 
