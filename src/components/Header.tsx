@@ -15,17 +15,8 @@ const navItems = [
 const githubUrl = socialLinks.find((link) => link.name === 'GitHub')?.url;
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // 路由切换时关闭移动菜单
   useEffect(() => {
@@ -125,8 +116,8 @@ export default function Header() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-[0_1px_12px_-2px_rgba(0,0,0,0.08)]
-        glass-effect border-b border-gray-200/60 bg-transparent"
+        className="fixed top-0 left-0 right-0 z-50 shadow-[0_1px_12px_-2px_rgba(0,0,0,0.08)]
+        glass-effect border-b border-gray-200/60"
       >
         <div className="max-w-7xl mx-auto pb-2 px-4 sm:px-6 lg:px-12 xl:px-16">
           <div className="flex items-center justify-between h-16 md:h-[72px]">
