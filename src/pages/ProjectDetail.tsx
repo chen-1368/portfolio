@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Github as GithubIcon, Target, Zap } from 'lucide-react';
+import { ExternalLink, Github as GithubIcon, Target, Zap } from 'lucide-react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '@/data/projects';
 import { getAssetUrl } from '@/utils/asset';
@@ -25,21 +25,6 @@ export default function ProjectDetail() {
     <div className="min-h-screen bg-gray-50">
       <div className="pt-24 pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <Link
-              to="/"
-              className="inline-flex items-center text-gray-600 hover:text-primary-600 transition-colors"
-            >
-              <ArrowLeft size={20} className="mr-2" />
-              <span>返回首页</span>
-            </Link>
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

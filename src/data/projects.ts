@@ -10,6 +10,8 @@ export interface Project {
   github?: string;
 }
 
+export const categories = ['全部', '前端开发', '后端开发', '全栈开发', 'AI/ML'];
+
 export const projects: Project[] = [
   {
     id: '1',
@@ -41,11 +43,8 @@ export const projects: Project[] = [
       '封装 getAssetUrl 工具函数，自动适配 Vite base 路径，确保在 GitHub Pages 部署环境下静态资源正确加载',
       '完成全站响应式布局，Header 支持移动端抽屉菜单，项目卡片与内容区域自适应多设备屏幕',
       '集成 ESLint + Prettier 统一代码风格，配置 TypeScript 严格模式保障类型安全',
-      '部署至 GitHub Pages（chen-1368.github.io/portfolio），实现自动化构建与发布'
     ],
     link: '#',
     github: 'https://github.com/chen-1368/portfolio'
   }
 ];
-
-export const categories = ['全部', '前端开发', '后端开发', '全栈开发', 'AI/ML'];
