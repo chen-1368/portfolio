@@ -7,8 +7,8 @@ import { socialLinks } from '@/data/socials';
 
 const navItems = [
   { name: '首页', path: '/' },
-  { name: '关于', path: '/about' },
   { name: '项目', path: '/projects' },
+  { name: '关于', path: '/about' },
   { name: '联系', path: '/contact' },
 ];
 
@@ -123,7 +123,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 md:h-[72px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
-              <span className="text-xl md:text-2xl font-bold text-gradient tracking-tight">
+              <span className="text-2xl md:text-2xl font-bold text-gradient tracking-tight">
                 作品集
               </span>
             </Link>

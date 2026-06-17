@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { Calendar, Users } from 'lucide-react';
-import { experiences, education } from '@/data/experience';
 import { getAssetUrl } from '@/utils/asset';
 
 export default function About() {
@@ -32,101 +30,17 @@ export default function About() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-                <Users size={16} className="mr-2" />
-                关于我
-              </span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">资深前端工程师</h1>
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Web 开发爱好者</h1>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                我是一名充满热情的前端工程师，拥有丰富的开发经验。 专注于使用 React、Vue
-                等现代前端技术构建高质量的 Web 应用。 我热爱创造优雅的用户界面和流畅的交互体验。
+                我是一名充满热情的 Web 开发爱好者，自学前端相关技术。 专注于使用 React、Vue
+                等现代前端工具搭建完整 Web 应用，热衷于打造简洁优雅的界面与顺滑自然的交互体验。
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                在过去的几年里，我参与了多个大型项目的开发，包括图片资源分享平台、企业级后台管理系统等。
-                我善于解决复杂问题，注重代码质量和团队协作。
+                搭建这个作品集站点，既是整理自己一路以来的开发成果，也希望能在这里记录技术成长。
+                乐于和同好交流开发思路，也期待能收获更多实践机会，持续在 Web
+                领域稳步学习、不断精进。
               </p>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">工作经历</h2>
-            <p className="text-gray-600">积累丰富的行业经验，不断挑战自我</p>
-          </motion.div>
-
-          <div className="relative">
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200" />
-
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className={`relative mb-8 ${index % 2 === 0 ? 'md:text-right' : 'md:ml-auto'}`}
-              >
-                <div
-                  className={`absolute left-6 md:left-1/2 w-4 h-4 bg-primary-500 rounded-full border-4 border-white shadow-lg -translate-x-1/2`}
-                />
-                <div
-                  className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}
-                >
-                  <div className="bg-white p-6 rounded-xl card-shadow">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Calendar size={16} className="text-gray-400" />
-                      <span className="text-sm text-gray-500">
-                        {exp.startDate} - {exp.endDate}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">{exp.position}</h3>
-                    <p className="text-primary-600 font-medium mb-3">{exp.company}</p>
-                    <p className="text-gray-600 text-sm">{exp.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">教育背景</h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {education.map((edu) => (
-              <motion.div
-                key={edu.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-primary-50 to-blue-50 p-8 rounded-2xl"
-              >
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{edu.school}</h3>
-                <p className="text-primary-600 font-medium mb-1">
-                  {edu.degree} - {edu.major}
-                </p>
-                <p className="text-gray-500 text-sm">
-                  {edu.startDate} - {edu.endDate}
-                </p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

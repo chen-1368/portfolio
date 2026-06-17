@@ -47,13 +47,9 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <span className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-              <Mail size={16} className="mr-2" />
-              联系我
-            </span>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">与我取得联系</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              有任何问题或合作意向？欢迎随时联系我，我会尽快回复您。
+              有任何问题？欢迎随时联系我，我会尽快回复您。
             </p>
           </motion.div>
 

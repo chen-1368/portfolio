@@ -38,9 +38,6 @@ export default function ProjectDetail() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <span className="inline-block px-4 py-1 bg-primary-600 text-white text-sm font-medium rounded-full mb-4">
-                  {project.category}
-                </span>
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">{project.name}</h1>
               </div>
             </div>

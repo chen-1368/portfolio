@@ -9,13 +9,15 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 text-gradient">作品集</h3>
             <p className="text-gray-400 text-sm">
-              专注于前端开发，致力于创造优秀的用户体验和高质量的代码。{' '}
+              本作品集收录我全部原创开发项目，记录学习历程与技术实践，欢迎交流沟通。
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">快速链接</h4>
-            <ul className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-400">
+            {/* 标题加 text-center 实现居中 */}
+            <h4 className="text-lg font-semibold mb-4 text-center">快速链接</h4>
+            {/* grid 容器加 justify-items-center：让每一列子元素水平居中 */}
+            <ul className="px-6 grid grid-cols-4 gap-x-6 gap-y-2 text-sm text-gray-400 justify-items-center">
               <li>
                 <a href="/" className="hover:text-white transition-colors">
                   首页
@@ -40,8 +42,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">联系方式</h4>
-            <div className="flex space-x-4">
+            <h4 className="text-lg font-semibold mb-4 text-center">联系方式</h4>
+            <div className="flex space-x-4 justify-center">
               <a
                 href={socialLinks.find((link) => link.name === 'GitHub')?.url}
                 target="_blank"

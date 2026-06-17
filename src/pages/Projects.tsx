@@ -21,12 +21,9 @@ export default function Projects() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <span className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-              项目集合
-            </span>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">我的项目作品</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              展示我参与开发的各种项目，涵盖前端开发、后端开发、全栈开发等多个领域
+              展示我开发的各种项目，涵盖前端开发、后端开发、全栈开发等多个领域
             </p>
           </motion.div>
 
@@ -52,16 +49,19 @@ export default function Projects() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.slice().reverse().map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card project={project} />
-              </motion.div>
-            ))}
+            {filteredProjects
+              .slice()
+              .reverse()
+              .map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card project={project} />
+                </motion.div>
+              ))}
           </div>
 
           {filteredProjects.length === 0 && (
