@@ -61,7 +61,7 @@ export default function Header() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 bottom-0 w-[280px] max-w-[80vw] bg-white shadow-2xl md:hidden z-[60] flex flex-col"
+            className="fixed top-0 right-0 bottom-0 w-[260px] bg-white shadow-2xl md:hidden z-[60] flex flex-col"
           >
             {/* Drawer Header */}
             <div className="flex items-center justify-between px-6 h-16 border-b border-gray-100">
@@ -83,7 +83,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className={`relative flex items-center px-4 py-3.5 rounded-xl text-[15px] font-medium transition-colors ${
+                    className={`relative flex items-center pl-10 py-3.5 rounded-xl text-[15px] font-medium transition-colors ${
                       isActive
                         ? 'bg-primary-50 text-primary-600'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
@@ -125,20 +125,14 @@ export default function Header() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'glass-effect border-b border-gray-200/60 shadow-[0_1px_12px_-2px_rgba(0,0,0,0.08)]'
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-[0_1px_12px_-2px_rgba(0,0,0,0.08)]
+        glass-effect border-b border-gray-200/60 bg-transparent"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16">
+        <div className="max-w-7xl mx-auto pb-2 px-4 sm:px-6 lg:px-12 xl:px-16">
           <div className="flex items-center justify-between h-16 md:h-[72px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
-              <span className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center text-white font-bold text-sm shadow-md group-hover:shadow-lg transition-shadow">
-                C
-              </span>
-              <span className="text-lg md:text-xl font-bold text-gradient tracking-tight">
+              <span className="text-xl md:text-2xl font-bold text-gradient tracking-tight">
                 作品集
               </span>
             </Link>
@@ -151,7 +145,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className={`relative px-4 py-2 rounded-lg text-[14px] font-medium transition-colors duration-200 ${
+                    className={`relative px-4 py-2 rounded-lg text-[15px] font-medium transition-colors duration-200 ${
                       isActive
                         ? 'text-primary-600'
                         : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100/60'
