@@ -109,4 +109,37 @@ export const projects: Project[] = [
     link: 'https://imagecompression.luminoussunrise.site/',
     github: 'https://github.com/chen-1368/imageCompression',
   },
+  {
+    id: '5',
+    name: '玄女角色解析',
+    description:
+      '将4399论坛万字长帖重新设计为独立静态网站，提供章节式内容导航、白天/夜间主题切换、响应式布局等完善的阅读体验，涵盖角色技能数值、机制分析、觉醒选择与玩法推荐共六章深度内容。',
+    image: '/images/xuannv.jpg',
+    category: '前端开发',
+    techStack: ['HTML', 'CSS', 'JavaScript', 'Vite'],
+    achievements: [
+      '基于 CSS Variables 实现完整主题系统，支持白天/夜间模式切换并跟随系统偏好',
+      '桌面端固定目录导航配合 Intersection Observer 实现滚动自动高亮，移动端折叠菜单适配小屏',
+      '原生图片懒加载与平滑滚动，优化长文阅读体验',
+      '三档响应式断点（1400px / 768px / 480px）覆盖桌面到手机全设备',
+      '使用 Vite 构建，产物自动添加内容哈希优化缓存策略',
+    ],
+    link: 'https://xuannv.luminoussunrise.site/',
+    github: 'https://github.com/chen-1368/xuan-nv',
+  },
 ];
+
+/*
+格式:
+{
+  id: '3',
+  name: '',
+  description: '',
+  image: '/images/xxx.jpg',
+  category: '前端开发',
+  techStack: [],
+  achievements: [],
+  link: '',
+  github: '',
+}
+*/
