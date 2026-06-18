@@ -23,7 +23,6 @@ src/
 │   ├── Footer.tsx       # 页脚组件
 │   └── Header.tsx       # 导航栏组件（含移动端菜单）
 ├── data/                # 静态数据
-│   ├── experience.ts    # 工作经历与教育背景
 │   ├── projects.ts      # 项目数据
 │   └── socials.ts       # 社交链接与联系方式
 ├── pages/               # 页面组件
