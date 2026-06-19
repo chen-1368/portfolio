@@ -119,7 +119,7 @@ export default function Header() {
         className="fixed top-0 left-0 right-0 z-50 shadow-[0_1px_12px_-2px_rgba(0,0,0,0.08)]
         glass-effect border-b border-gray-200/60"
       >
-        <div className="max-w-7xl mx-auto pb-2 px-4 sm:px-6 lg:px-12 xl:px-16">
+        <div className="mx-auto pb-2 px-4 sm:px-6 lg:px-12 xl:px-16">
           <div className="flex items-center justify-between h-16 md:h-[72px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
