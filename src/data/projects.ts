@@ -53,7 +53,7 @@ export const projects: Project[] = [
       '完成全站响应式布局，Header 支持移动端抽屉菜单，项目卡片与内容区域自适应多设备屏幕',
       '集成 ESLint + Prettier 统一代码风格，配置 TypeScript 严格模式保障类型安全',
     ],
-    link: 'https://portfolio.luminoussunrise.site/',
+    link: '',
     github: 'https://github.com/chen-1368/portfolio',
   },
   {
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       '任务列表按创建时间倒序自动排序，封装 sortTasksByCreatedAtDesc 工具函数确保新增任务始终展示在最前',
       '集成 ESLint + TypeScript ESLint 统一代码规范，配置 TypeScript 严格模式保障类型安全',
     ],
-    link: 'https://todoflow.luminoussunrise.site/',
+    link: 'https://todoflow-4oz.pages.dev/',
     github: 'https://github.com/chen-1368/TodoFlow',
   },
   {
@@ -106,7 +106,7 @@ export const projects: Project[] = [
       '封装可复用 ImagePreview 组件，支持 Teleport 全屏毛玻璃预览与 Esc 关闭',
       '响应式 Flex 流式布局，桌面端并排展示、移动端自动堆叠适配',
     ],
-    link: 'https://imagecompression.luminoussunrise.site/',
+    link: 'https://imagecompression-8b5.pages.dev/',
     github: 'https://github.com/chen-1368/imageCompression',
   },
   {
@@ -124,8 +124,29 @@ export const projects: Project[] = [
       '三档响应式断点（1400px / 768px / 480px）覆盖桌面到手机全设备',
       '使用 Vite 构建，产物自动添加内容哈希优化缓存策略',
     ],
-    link: 'https://xuannv.luminoussunrise.site/',
+    link: 'https://xuan-nv.pages.dev/',
     github: 'https://github.com/chen-1368/xuan-nv',
+  },
+  {
+    id: '6',
+    name: '赤心巡天 · 在线阅读站',
+    description:
+      '赤心巡天小说阅读器，专门为赤心巡天小说设计，包含书籍信息展示、章节目录导航、正文阅读（含键盘 ←/→ 切章、字号调节）。配套模块化 Node.js 爬虫，可一键从起点中文网抓取免费章节并落盘到静态资源，无后端、可托管到任意静态站点。',
+    image: '/images/cxxt.jpg',
+    category: '前端开发',
+    techStack: ['React 19', 'Vite', 'React Router', 'Node.js', 'Firecrawl CLI'],
+    achievements: [
+      '零后端静态站点：全部数据为 public/data/*.json，fetch 即用',
+      '两级路由：基于 React Router 实现 / 与 /chapter/:index 跳转，<Link> 客户端导航无白屏闪烁',
+      '键盘可访问的阅读体验：全局 ArrowLeft / ArrowRight 切章、A-/A+ 字号调节并持久化到 localStorage、平滑回到顶部',
+      '目录分页 + 即时搜索：100 章/页，useMemo 缓存过滤结果，搜索时自动重置到第 1 页',
+      '严格的竞态防护：章节切换用 cancelled 标志丢弃过期 fetch，避免旧章节覆盖新页面',
+      '可复用组件：把章节顶部/底部两处导航封装为 <ChapterNav>，消除重复 JSX',
+      '细节打磨：CSS 变量统一暗色主题、backdrop-filter 毛玻璃 Header、文字渐变 logo、text-indent: 2em 适合中文阅读排版、自定义滚动条与抗锯齿',
+      '模块化爬虫：基于 Firecrawl CLI，拆为 4 个独立脚本，支持断点续爬与批量并发',
+    ],
+    link: 'https://cxxt.pages.dev/',
+    github: 'https://github.com/chen-1368/cxxt',
   },
 ];
 
