@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Github as GithubIcon } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Github as GithubIcon, Search } from 'lucide-react';
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { socialLinks } from '@/data/socials';
 
 const navItems = [
@@ -16,12 +16,24 @@ const githubUrl = socialLinks.find((link) => link.name === 'GitHub')?.url;
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // 路由切换时关闭移动菜单
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
+
+  // 同步 URL 中的搜索参数到输入框（在 /projects 时保持一致）
+  useEffect(() => {
+    if (location.pathname === '/projects') {
+      setSearchValue(searchParams.get('q') || '');
+    } else {
+      setSearchValue('');
+    }
+  }, [location.pathname, searchParams]);
 
   // 菜单打开时锁定背景滚动
   useEffect(() => {
@@ -30,6 +42,18 @@ export default function Header() {
       document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
+
+  // 提交搜索：非项目页先跳转，项目页直接写 URL 搜索参数
+  const handleSearch = (e?: FormEvent) => {
+    e?.preventDefault();
+    const q = searchValue.trim();
+    if (location.pathname === '/projects') {
+      setSearchParams(q ? { q } : {});
+    } else {
+      if (!q) return;
+      navigate(q ? `/projects?q=${encodeURIComponent(q)}` : '/projects');
+    }
+  };
 
   // 移动端右侧抽屉菜单（通过 portal 渲染到 body，脱离 header 层叠上下文）
   const mobileDrawer = (
@@ -119,7 +143,7 @@ export default function Header() {
         className="fixed top-0 left-0 right-0 z-50 shadow-[0_1px_12px_-2px_rgba(0,0,0,0.08)]
         glass-effect border-b border-gray-200/60"
       >
-        <div className="mx-auto pb-2 px-4 sm:px-6 lg:px-12 xl:px-16">
+        <div className="mx-auto py-1 px-4 sm:px-6 lg:px-12 xl:px-16">
           <div className="flex items-center justify-between h-16 md:h-[72px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
@@ -129,55 +153,80 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
-              {navItems.map((item) => {
-                const isActive = location.pathname === item.path;
-                return (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    className={`relative px-4 py-2 rounded-lg text-[15px] font-medium transition-colors duration-200 ${
-                      isActive
-                        ? 'text-primary-600'
-                        : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100/60'
-                    }`}
-                  >
-                    {item.name}
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-underline"
-                        className="absolute bottom-0 left-4 right-4 h-[2px] bg-gradient-primary rounded-full"
-                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                      />
-                    )}
-                  </Link>
-                );
-              })}
+            <nav className="hidden md:block absolute top-5 left-1/2 -translate-x-1/2">
+              <div className="flex items-center gap-1">
+                {navItems.map((item) => {
+                  const isActive = location.pathname === item.path;
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      className={`relative px-4 py-2 rounded-lg text-[15px] font-medium transition-colors duration-200 ${
+                        isActive
+                          ? 'text-primary-600'
+                          : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100/60'
+                      }`}
+                    >
+                      {item.name}
+                      {isActive && (
+                        <motion.span
+                          layoutId="nav-underline"
+                          className="absolute bottom-0 left-4 right-4 h-[2px] bg-gradient-primary rounded-full"
+                          transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                        />
+                      )}
+                    </Link>
+                  );
+                })}
+              </div>
             </nav>
 
             {/* Right Actions */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="flex items-center gap-2">
+              {/* 搜索框：非 /projects 提交时跳转，/projects 提交时直接写 URL 搜索参数 */}
+              <form onSubmit={handleSearch} className="relative">
+                <Search
+                  size={15}
+                  className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                />
+                <input
+                  type="text"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  placeholder="搜索项目..."
+                  className="w-44 lg:w-56 pl-8 pr-7 py-1.5 text-sm rounded-lg border border-gray-200/80 bg-white/70 hover:bg-white focus:bg-white focus:border-primary-400 focus:ring-2 focus:ring-primary-100 outline-none transition-all"
+                />
+                {searchValue && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchValue('')}
+                    aria-label="清空搜索"
+                    className="absolute right-1.5 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+                  >
+                    <X size={12} strokeWidth={2.5} />
+                  </button>
+                )}
+              </form>
               {githubUrl && (
                 <a
                   href={githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100/80 transition-colors"
+                  className="hidden md:block p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100/80 transition-colors"
                   aria-label="GitHub"
                 >
                   <GithubIcon size={18} />
                 </a>
               )}
+              {/* Mobile Menu Button */}
+              <button
+                className="md:hidden p-2 -mr-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="菜单"
+              >
+                {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              </button>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 -mr-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="菜单"
-            >
-              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
           </div>
         </div>
       </motion.header>

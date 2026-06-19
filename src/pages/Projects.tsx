@@ -1,15 +1,24 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
 import Card from '@/components/Card';
 import { projects, categories } from '@/data/projects';
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('全部');
+  const [searchParams] = useSearchParams();
+  const searchQuery = (searchParams.get('q') || '').trim().toLowerCase();
 
-  const filteredProjects =
-    activeCategory === '全部'
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
+  const filteredProjects = projects.filter((project) => {
+    const matchCategory = activeCategory === '全部' || project.category === activeCategory;
+    if (!matchCategory) return false;
+    if (!searchQuery) return true;
+    return (
+      project.name.toLowerCase().includes(searchQuery) ||
+      project.description.toLowerCase().includes(searchQuery) ||
+      project.techStack.some((tech) => tech.toLowerCase().includes(searchQuery))
+    );
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -66,7 +75,13 @@ export default function Projects() {
 
           {filteredProjects.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-gray-500 text-lg">暂无该分类的项目</p>
+              <p className="text-gray-500 text-lg">
+                {searchQuery
+                  ? `没有找到匹配「${searchParams.get('q')}」${
+                      activeCategory === '全部' ? '' : `（${activeCategory}）`
+                    }的项目`
+                  : '暂无该分类的项目'}
+              </p>
             </div>
           )}
         </div>
